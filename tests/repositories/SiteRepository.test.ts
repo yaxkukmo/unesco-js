@@ -22,15 +22,17 @@ describe('SiteRepository', () => {
   describe('findAll', () => {
     it('should fetch all sites', async () => {
       clientMock.mockResolvedValue({
+        success: true,
         data: [{ id: 1, name: 'site 1' }],
-        meta: { total: 100, last_page: 10 }
+        meta: { total: 100, lastPage: 10 }
       })
       const result = await repository.findAll()
 
       expect(clientMock).toHaveBeenCalledWith('/api/sites')
-      expect(result.total).toBe(100)
+      console.log(result)
+      expect(result.meta.total).toBe(100)
       expect(result.data).toHaveLength(1)
-      expect(result.lastPage).toBe(10)
+      expect(result.meta.lastPage).toBe(10)
     })
 
     it('should add filters to URL', async () => {
