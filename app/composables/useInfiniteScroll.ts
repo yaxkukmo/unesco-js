@@ -1,4 +1,5 @@
 export const useInfiniteScroll = (elementId: string, callback: () => void) => {
+  let observer: IntersectionObserver | null = null
 
   onMounted(() => {
     const element = document.querySelector(elementId)
@@ -13,7 +14,7 @@ export const useInfiniteScroll = (elementId: string, callback: () => void) => {
       }
     }
 
-    const observer = new IntersectionObserver(intersectionCallback, {
+    observer = new IntersectionObserver(intersectionCallback, {
       root: null,
       rootMargin: '0px',
       threshold: 0
