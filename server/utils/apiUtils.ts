@@ -12,16 +12,18 @@ let expiresAt = 0;
             password: config.apiClientSecret
           }
         })
-        token = String(auth.access_token)
-        expiresAt = Date.now() + (Number(auth.expires_in) * 1000)
+        token = String(auth.data.access_token)
+        expiresAt = Date.now() + (Number(auth.data.expires_in) * 1000)
     }
 
     return async (url: string, options = {}) => {
+      const { headers, ...rest } = options
+
       return $fetch(url,{
-        ...options,
+        ...rest,
         baseURL: config.apiBase,
         headers: {
-          ...options.headers,
+          ...headers,
           Authorization: `Bearer ${token}`
         }
       })
