@@ -26,8 +26,8 @@ const load = async (reset = false) => {
     }
   })
   sites.value.push(...result.data)
-  total.value = result.total
-  lastPage.value = result.lastPage
+  total.value = result.meta.total
+  lastPage.value = result.meta.lastPage
   page.value++
 }
 watch(selectedCountryId, () => load(true))
