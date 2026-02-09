@@ -1,4 +1,4 @@
-import type { ICountryRepository } from '../repositories/interfaces/ICountryRepository'
+import type { ICountryRepository } from '~/infrastructure/repositories/interfaces/ICountryRepository'
 import type { Country } from '~/app/models/Country'
 
 export class CountryService {

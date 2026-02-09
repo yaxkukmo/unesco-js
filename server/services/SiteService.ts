@@ -1,4 +1,4 @@
-import type { ISiteRepository } from '../repositories/interfaces/ISiteRepository'
+import type { ISiteRepository } from '~/infrastructure/repositories/interfaces/ISiteRepository'
 import type { Site } from '~/app/models/Site'
 import type { ApiResponse } from '~/app/models/ApiResponse.types'
 

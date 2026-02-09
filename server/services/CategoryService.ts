@@ -1,4 +1,4 @@
-import type { ICategoryRepository } from '../repositories/interfaces/ICategoryRepository'
+import type { ICategoryRepository } from '~/infrastructure/repositories/interfaces/ICategoryRepository'
 import type { Category } from '~/app/models/Category'
 
 export class CategoryService {

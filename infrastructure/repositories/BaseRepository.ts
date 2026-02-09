@@ -1,4 +1,4 @@
-import { apiClient } from '../utils/apiUtils'
+import { apiClient } from '~/server/utils/apiUtils'
 
 export default class BaseRepository {
   protected apiClient: any

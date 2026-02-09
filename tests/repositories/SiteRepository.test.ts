@@ -1,5 +1,5 @@
 import { it, describe, expect, vi, beforeEach } from 'vitest'
-import { SiteRepository } from '~/server/repositories/SiteRepository'
+import { SiteRepository } from '~/infrastructure/repositories/SiteRepository'
 import { apiClient } from '~/server/utils/apiUtils'
 
 vi.mock('~/server/utils/apiUtils', () => ({

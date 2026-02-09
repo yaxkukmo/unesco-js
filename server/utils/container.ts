@@ -1,9 +1,9 @@
-import { SiteRepository } from '../repositories/SiteRepository'
-import { CountryRepository } from '../repositories/CountryRepository'
-import { CategoryRepository } from '../repositories/CategoryRepository'
-import { SiteService } from '../services/SiteService'
-import { CountryService } from '../services/CountryService'
-import { CategoryService } from '../services/CategoryService'
+import { SiteRepository } from '~/infrastructure/repositories/SiteRepository'
+import { CountryRepository } from '~/infrastructure/repositories/CountryRepository'
+import { CategoryRepository } from '~/infrastructure/repositories/CategoryRepository'
+import { SiteService } from '~/services/SiteService'
+import { CountryService } from '~/services/CountryService'
+import { CategoryService } from '~/services/CategoryService'
 
 const names = {
   siteRepository: 'SiteRepository',
