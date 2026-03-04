@@ -1,5 +1,5 @@
-import type { ICountryRepository } from '~/infrastructure/repositories/interfaces/ICountryRepository'
-import type { Country } from '~/app/models/Country'
+import type { ICountryRepository } from '~/domain/ports/ICountryRepository'
+import type { Country } from '~/shared/types/Country'
 
 export class CountryService {
   constructor(private repository: ICountryRepository) {}

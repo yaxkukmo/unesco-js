@@ -1,19 +1,25 @@
 import BaseRepository from './BaseRepository'
-import type { Site } from '~/app/models/Site'
-import type { ISiteRepository } from './interfaces/ISiteRepository'
-import type { ApiResponse } from '~/app/models/ApiResponse.types'
+import type { Site } from '~/shared/types/Site'
+import type { ISiteRepository } from '~/domain/ports/ISiteRepository'
+import type { ApiResponse } from '~/shared/types/ApiResponse'
 
 export class SiteRepository extends BaseRepository implements ISiteRepository {
   private endpoint = '/api/sites'
 
   async findAll(filters?: {
     country?: number
-    category?: string
+    category?: number
     perPage?: number
     page?: number
   } = {}): Promise<ApiResponse<Site[]>> {
     const client = await this.getClient()
-    const params = new URLSearchParams(Object.entries(filters).filter(([key, value]) => value !== undefined)).toString()
+    const params = new URLSearchParams(
+      Object.entries(filters).filter(
+        ([key, value]) => { 
+          return value !== undefined && value !== null && value !== ''
+        }
+      )
+    ).toString()
     const url = params ? `${this.endpoint}?${params}` : this.endpoint
     return await client<Site[]>(url)
   }

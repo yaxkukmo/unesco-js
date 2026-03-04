@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   runtimeConfig: {
-    apiBase: 'http://localhost:8080',
+    apiBase: 'http://localhost:8000',
     apiClientId: 'maalob@gmail.com',
     apiClientSecret: 'MojeSuperHaslo2024',
   }

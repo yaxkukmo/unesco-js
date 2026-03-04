@@ -4,7 +4,7 @@ import { SiteName } from '~/domain/site/value_objects/SiteName'
 import { Description } from '~/domain/site/value_objects/Description'
 import { ExternalUrl } from '~/domain/site/value_objects/ExternalUrl'
 import { Coordinates } from '~/domain/site/value_objects/Coordinates'
-import type { ISubmissionRepository } from '~/infrastructure/repositories/interfaces/ISubmissionRepository'
+import type { ISubmissionRepository } from '~/domain/ports/ISubmissionRepository'
 
 export type SubmissionData = {
   name: string

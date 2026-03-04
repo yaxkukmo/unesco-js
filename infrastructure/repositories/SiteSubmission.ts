@@ -1,4 +1,4 @@
-import ISiteSubmissionRepository from '~/infrastructure/repositories/interfaces/ISiteSubmissionRepository'
+import ISiteSubmissionRepository from '~/domain/ports/ISiteSubmissionRepository'
 import SiteSubmission from '~/domain/site/entities/SiteSubmission'
 import SiteName from '~/domain/site/value_objects/SiteName'
 import Description from '~/domain/site/value_objects/Description'

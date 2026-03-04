@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import SiteComponent from '../../components/Site.vue'
 import ClusteredMap from '../../components/ClusteredMap.vue'
-import type { Site } from '~/app/models/Site'
-import type { Country } from '~/app/models/Country'
-import type { SiteResponse } from '~/app/dto/SiteResponse'
+import type { Site } from '~/shared/types/Site'
+import type { Country } from '~/shared/types/Country'
+import type { ApiResponse } from '~/shared/types/ApiResponse'
 
 const selectedCountryId = ref<number | null>(26)
+const categoryId = ref(useRoute().query.categoryid ?? null)
 const page = ref<number>(1)
 const sites = ref<Site[]>([])
 const total = ref<number>(0)
-const lastPage = ref<number>(0)
+const lastPage = ref<number | null>(null)
 
 const load = async (reset = false) => {
   if (reset) {
@@ -17,17 +18,19 @@ const load = async (reset = false) => {
     page.value = 1
   }
 
-  if (page > lastPage) return
+  if (lastPage.value !== null && page.value > lastPage.value) return
 
-  const result = await $fetch<SiteResponse>('/api/sites', {
+  const result = await $fetch<ApiResponse<Site[]>>('/api/sites', {
     query: {
-      country: selectedCountryId.value,
+      country: !categoryId.value ? selectedCountryId.value : null,
+      category: categoryId.value,
       page: page.value
     }
   })
+  if (!(`data` in result)) return
   sites.value.push(...result.data)
-  total.value = result.meta.total
-  lastPage.value = result.meta.lastPage
+  total.value = result.meta?.total ?? 0
+  lastPage.value = result.meta?.lastPage ?? null 
   page.value++
 }
 watch(selectedCountryId, () => load(true))

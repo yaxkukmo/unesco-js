@@ -5,8 +5,8 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
 
   return service.listSites({
-    country: query.country ? Number(query.country) : 26,
-    category: query.category as string,
+    country: query.country ? Number(query.country) : null,
+    category: query.category as number,
     page: query.page ? Number(query.page): 1,
     perPage: query.perPage ? Number(query.perPage): 10
   })

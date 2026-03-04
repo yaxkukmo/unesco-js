@@ -1,5 +1,5 @@
-import type { ICategoryRepository } from '~/infrastructure/repositories/interfaces/ICategoryRepository'
-import type { Category } from '~/app/models/Category'
+import type { ICategoryRepository } from '~/domain/ports/ICategoryRepository'
+import type { Category } from '~/shared/types/Category'
 
 export class CategoryService {
   constructor(private repository: ICategoryRepository) {}

@@ -36,7 +36,13 @@ export class SiteSubmission {
     return this.status
   }
 
-  static create(id: string, name: SiteName, description: Description, externalUrl: ExternalUrl, coordinates: Coordinates): SiteSubmission {
+  static create(
+    id: string, 
+    name: SiteName, 
+    description: Description, 
+    externalUrl: ExternalUrl, 
+    coordinates: Coordinates
+  ): SiteSubmission {
     return new SiteSubmission(id, name, description, externalUrl, coordinates, SiteStatus.PendingReview)
   }
 }

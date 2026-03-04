@@ -1,13 +1,13 @@
 import type { ISiteRepository } from '~/infrastructure/repositories/interfaces/ISiteRepository'
-import type { Site } from '~/app/models/Site'
-import type { ApiResponse } from '~/app/models/ApiResponse.types'
+import type { Site } from '~/shared/types/Site'
+import type { ApiResponse } from '~/shared/types/ApiResponse'
 
 export class SiteService {
   constructor(private repository: ISiteRepository) { }
 
   async listSites(filters?: {
     country?: number
-    category?: string
+    category?: number
     page?: number
     perPage?: number
   }): Promise<ApiResponse<Site[]>> {

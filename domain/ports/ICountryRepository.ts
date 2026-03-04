@@ -1,4 +1,4 @@
-import type { Country } from '~/app/models/Country'
+import type { Country } from '~/shared/types/Country'
 
 export interface ICountryRepository {
     findAll(): Promise<{ data: Country[]}>

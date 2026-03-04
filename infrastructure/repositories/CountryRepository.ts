@@ -1,6 +1,6 @@
 import BaseRepository from './BaseRepository'
-import type { Country } from '~/app/models/Country'
-import type { ICountryRepository } from './interfaces/ICountryRepository'
+import type { Country } from '~/shared/types/Country'
+import type { ICountryRepository } from '~/domain/ports/ICountryRepository'
 
 export class CountryRepository extends BaseRepository implements ICountryRepository {
   private endpoint = '/api/countries'
@@ -13,7 +13,7 @@ export class CountryRepository extends BaseRepository implements ICountryReposit
 
   async findById(id: number): Promise<Country> {
     const client = await this.getClient()
-    const response = client(`${this.endpoint}/${id}`)
+    const response = await client(`${this.endpoint}/${id}`)
     return response.data
   }
 }

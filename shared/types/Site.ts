@@ -1,8 +1,8 @@
-import type {Country} from './Country'
-import type {Category} from './Category'
+import type { Country } from './Country'
+import type { Category } from './Category'
 
 export interface Site {
-  id: int
+  id: number
   name: string
   description?: string
   latitude: number

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Site } from '~/app/models/Site'
+import type { Site } from '~/shared/types/Site'
 
 const route = useRoute()
 const siteId = computed(() => `site-${route.params.id}`)

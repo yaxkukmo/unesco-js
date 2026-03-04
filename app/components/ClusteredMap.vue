@@ -5,7 +5,7 @@
   import 'leaflet.markercluster'
   import 'leaflet.markercluster/dist/MarkerCluster.css'
   import 'leaflet.markercluster/dist/MarkerCluster.Default.css'
-  import type { Site } from '~/app/models/Site'
+  import type { Site } from '~/shared/types/Site'
 
   // Fix dla ikon
   import icon from 'leaflet/dist/images/marker-icon.png'
